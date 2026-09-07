@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faith Over Fear</title>
+    <style>
+        /* CSS Reset & Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #2C3E50;
+            --accent: #D4AF37;
+            --light: #F8F9FA;
+            --dark: #1A252F;
+            --text-muted: #6C757D;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 37, 47, 0.75), rgba(26, 37, 47, 0.75)), 
+                        url('https://images.unsplash.com/photo-1509021436468-d51039746b40?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            padding: 0 1rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: #ffffff;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #b8952d;
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+            display: block;
+            margin: 0.5rem auto 0;
+        }
+
+        /* About Section */
+        .about-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #4A5568;
+        }
+
+        /* Inspiration Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            border-top: 4px solid var(--accent);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Daily Quote Generator */
+        .quote-box {
+            background: var(--primary);
+            color: #ffffff;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .quote-box blockquote {
+            font-size: 1.4rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .quote-box button {
+            background-color: var(--accent);
+            color: #ffffff;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">FAITH <span>OVER</span> FEAR</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#pillars">Pillars</a></li>
+                <li><a href="#quote">Daily Verse</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Faith Over Fear</h1>
+            <p>Choosing hope, strength, and trust in every season of life.</p>
+            <a href="#quote" class="btn">Get Inspired Today</a>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2 class="section-title">Our Purpose</h2>
+        <p class="about-text">
+            Fear tells us what might go wrong; faith reminds us of what is already written. 
+            "Faith Over Fear" is a dedicated space to help you shift your perspective, replace anxiety with peace, 
+            and stand firm on a foundation of courage and conviction.
+        </p>
+    </section>
+
+    <section id="pillars">
+        <h2 class="section-title">Core Principles</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Unshakable Trust</h3>
+                <p>"Trusting the journey even when you cannot see the path ahead."</p>
+            </div>
+            <div class="card">
+                <h3>Inner Strength</h3>
+                <p>"Courage is not the absence of fear, but the triumph over it through faith."</p>
+            </div>
+            <div class="card">
+                <h3>Daily Peace</h3>
+                <p>"Releasing worries to make room for absolute clarity and calm."</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="quote">
+        <div class="quote-box">
+            <blockquote id="quote-text">
+                "For God has not given us a spirit of fear, but of power and of love and of a sound mind."
+            </blockquote>
+            <p id="quote-author" style="margin-bottom: 1.5rem; color: var(--accent);">— 2 Timothy 1:7</p>
+            <button class="btn" onclick="generateQuote()">New Inspiration</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Faith Over Fear. Built for hope and encouragement.</p>
+    </footer>
+
+    <script>
+        const quotes = [
+            {
+                text: "For God has not given us a spirit of fear, but of power and of love and of a sound mind.",
+                author: "2 Timothy 1:7"
+            },
+            {
+                text: "When anxiety was great within me, your consolation brought me joy.",
+                author: "Psalm 94:19"
+            },
+            {
+                text: "Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go.",
+                author: "Joshua 1:9"
+            },
+            {
+                text: "Faith does not make things easy, it makes them possible.",
+                author: "Luke 1:37"
+            },
+            {
+                text: "Peace I leave with you; my peace I give you. Do not let your hearts be troubled and do not be afraid.",
+                author: "John 14:27"
+            }
+        ];
+
+        function generateQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const quote = quotes[randomIndex];
+            
+            document.getElementById('quote-text').textContent = `"${quote.text}"`;
+            document.getElementById('quote-author').textContent = `— ${quote.author}`;
+        }
+    </script>
+</body>
+</html>
